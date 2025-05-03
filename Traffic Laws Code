@@ -1,1 +1,55 @@
 //This code will be for my Traffic Laws project.
+
+USE traffic;
+
+//Join using a CTE
+
+WITH combined_violations AS (
+    SELECT
+        s.quarter_name AS quarter,
+        s.site_number,
+        s.address,
+        s.directions,
+        s.latitude,
+        s.longitude,
+        s.total AS speed_violations,
+        IFNULL(r.total, 0) AS redlight_violations,
+        (s.total + IFNULL(r.total, 0)) AS total_violations
+    FROM Cleaned_Speed_Enforcement_Violations_No_Zero_Coords s
+    LEFT JOIN Cleaned_Automated_Red_Light_Violations r
+        ON s.site_number = r.site_number 
+        AND s.directions = r.directions 
+        AND s.quarter_name = r.quarter_name
+)
+
+//Displays how violations changed overtime
+SELECT
+    quarter,
+    site_number,
+    address,
+    directions,
+    latitude,
+    longitude,
+    total_violations,
+    LAG(total_violations) OVER (
+        PARTITION BY site_number 
+        ORDER BY quarter
+    ) AS prev_total,
+    (total_violations - LAG(total_violations) OVER (
+        PARTITION BY site_number 
+        ORDER BY quarter
+    )) AS change_in_violations
+FROM combined_violations
+ORDER BY site_number, quarter;
+
+/* 
+
+--Negative changes potentially means either
+
+- People are learning there’s a camera at a set location
+
+-More warnings or signs are working 
+
+-Enforcement is reducing bad driving violations or speed/right light violations
+
+*/
