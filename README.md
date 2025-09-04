@@ -4,35 +4,35 @@ This project combines and analyzes traffic violation data, specifically red ligh
 
 Features
 
-Data Integration: Combines multiple traffic violation datasets into a unified format for analysis.
+ - Data Integration: Combines multiple traffic violation datasets into a unified format for analysis.
 
-Violation Analysis: Tracks frequency, distribution, and trends of red light and speeding violations.
+ - Violation Analysis: Tracks frequency, distribution, and trends of red light and speeding violations.
 
-Statistical Insights: Identifies correlations between different types of violations and high-risk areas.
+ - Statistical Insights: Identifies correlations between different types of violations and high-risk areas.
 
-Modular Design: Can be extended to include additional violation types or other datasets (e.g., DUI, parking violations).
+ - Modular Design: Can be extended to include additional violation types or other datasets (e.g., DUI, parking violations).
 
 Technologies
 
-Programming Language: C++/Python (specify what you used)
+ - Programming Language: C++/Python (specify what you used)
 
-Data Handling: CSV parsing, vector/array manipulation, or pandas (if Python)
+ - Data Handling: CSV parsing, vector/array manipulation, or pandas (if Python)
 
-Analysis Tools: Sorting, filtering, and aggregation functions to summarize trends
+ - Analysis Tools: Sorting, filtering, and aggregation functions to summarize trends
 
 Use Cases
 
-Municipal traffic departments can identify problem intersections or roads.
+ - Municipal traffic departments can identify problem intersections or roads.
 
-Law enforcement can prioritize enforcement efforts based on violation patterns.
+ - Law enforcement can prioritize enforcement efforts based on violation patterns.
 
-Researchers and policy analysts can study driver behavior trends.
+ - Researchers and policy analysts can study driver behavior trends.
 
 How to Run
 
-Load your red light violation and speeding violation datasets.
+ - Load your red light violation and speeding violation datasets.
 
-Merge datasets using the provided scripts or program.
+ - Merge datasets using the provided script
 
 Analyze trends using the provided functions.
 
